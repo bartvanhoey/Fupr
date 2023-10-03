@@ -13,7 +13,7 @@
 
 With Fupr, you'll gain access to a rich set of utilities, extensions, and abstractions that seamlessly integrate functional programming paradigms into your .NET applications. Whether you're a seasoned functional programming enthusiast or just starting to explore this powerful paradigm, Fupr provides the tools you need to write more concise, readable, and maintainable code.
 
-Whether you are working on a small project or a large-scale application, Fupr empowers you to write code that is more modular, testable, and resilient. Start coding in a functional style today and unlock the full potential of your .NET development with Fupr.</Description>
+Whether you 're working on a small project or a large-scale application, Fupr empowers you to write code that is more modular, testable, and resilient. Start coding in a functional style today and unlock the full potential of your .NET development with Fupr.</Description>
     <PackageProjectUrl>https://github.com/bartvanhoey/Fupr</PackageProjectUrl>
     <RepositoryUrl>https://github.com/bartvanhoey/Fupr#readme</RepositoryUrl>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
