@@ -1,4 +1,4 @@
-﻿namespace Fupr
+﻿namespace Fupr.Extensions
 {
     public static class StringExtensions
     {
