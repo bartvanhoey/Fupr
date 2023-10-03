@@ -5,6 +5,10 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+
+    <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
+    
+    
     <Title>Empower Your Code with Functional Programming Goodness</Title>
     <Description>Elevate your software development to new heights with Fupr, the NuGet package that empowers your codebase with the elegance and power of functional programming. 
 
