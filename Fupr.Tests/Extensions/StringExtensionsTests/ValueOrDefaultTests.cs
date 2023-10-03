@@ -28,11 +28,12 @@ namespace Fupr.Tests.StringExtensions
         [Fact]
         public void ValueOrDefault_With_John_Default_Value_On_John_String_Should_Return_John()
         {
-            const string sut = "John";
+            const string expected = "John";
+            const string sut = expected;
 
             var result = sut.ValueOrDefault("");
 
-            result.ShouldBe("John");
+            result.ShouldBe(expected);
         }
 
         [Fact]
