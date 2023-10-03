@@ -478,3 +478,6 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+/.idea/.idea.Fupr/.idea/encodings.xml
+/.idea/.idea.Fupr/.idea/indexLayout.xml
+/.idea/.idea.Fupr/.idea/vcs.xml
