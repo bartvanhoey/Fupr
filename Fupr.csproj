@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Title>Empower Your Code with Functional Programming Goodness</Title>
+    <Description>Elevate your software development to new heights with Fupr, the NuGet package that empowers your codebase with the elegance and power of functional programming. 
+
+With Fupr, you'll gain access to a rich set of utilities, extensions, and abstractions that seamlessly integrate functional programming paradigms into your .NET applications. Whether you're a seasoned functional programming enthusiast or just starting to explore this powerful paradigm, Fupr provides the tools you need to write more concise, readable, and maintainable code.
+
+Whether you're working on a small project or a large-scale application, Fupr empowers you to write code that is more modular, testable, and resilient. Start coding in a functional style today and unlock the full potential of your .NET development with Fupr.</Description>
+    <PackageProjectUrl>https://github.com/bartvanhoey/Fupr</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/bartvanhoey/Fupr#readme</RepositoryUrl>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Update="LICENSE">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="xunit.extensibility.core" Version="2.4.2" />
+  </ItemGroup>
+
+
+</Project>
