@@ -22,7 +22,7 @@ namespace Fupr.Tests.StringExtensions
 
             var result = sut.ValueOrDefault("John");
 
-            result.ShouldBe("John1");
+            result.ShouldBe("John");
         }
 
         [Fact]
