@@ -43,7 +43,7 @@ jobs:
         dotnet-version: 7.x
 
     - name: Build
-      run: dotnet build $SOLUTION --configuration $BUILD_CONFIG -p:Version=$BUILD_VERSION --no-restore
+      run: msbuild $env:SOLUTION /p:Configuration=$env:BUILD_CONFIG /p:Platform="Any CPU" -p:Version=$env:BUILD_VERSION
 
     - name: Run tests
       run: dotnet test /p:Configuration=Debug /p:Platform="Any CPU" --no-restore --verbosity normal
