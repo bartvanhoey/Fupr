@@ -1,7 +1,7 @@
 using Fupr.Extensions;
 using Shouldly;
 
-namespace Fupr.Tests.StringExtensions
+namespace Fupr.Tests.Extensions.StringExtensionsTests
 {
     public class ValueOrDefaultTests
     {
@@ -46,6 +46,25 @@ namespace Fupr.Tests.StringExtensions
             result.ShouldBe("John");
         }
 
+        [Fact]
+        public void ValueOrDefault_With_5_Default_Value_On_An_6_Input_Should_Return_John()
+        {
+            const string sut = "5" ;
 
+            var result = sut.ValueOrDefault(4);
+
+            result.ShouldBe(5);
+        }
+        
+        
+        [Fact]
+        public void ValueOrDefault_With_10_Default_Value_On_An_Empty_String_Should_Return_10()
+        {
+            var sut = string.Empty;
+
+            var result = sut.ValueOrDefault(10);
+
+            result.ShouldBe(10);
+        }
     }
 }
