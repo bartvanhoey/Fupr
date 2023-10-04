@@ -7,11 +7,11 @@ namespace Fupr.Extensions
     {
         // Extension method by Simon Painter
         public static string ValueOrDefault(this string? @this, string defaultValue)
-                => string.IsNullOrWhiteSpace(@this) ? defaultValue : @this;
+                => @this.IsNullOrWhiteSpace() ? defaultValue : @this;
         
         // Extension method by Simon Painter
         public static int ValueOrDefault(this string? @this, int defaultValue)
-            => string.IsNullOrWhiteSpace(@this) || !int.TryParse(@this, out var parsedValue) ? defaultValue : parsedValue;
+            => @this.IsNullOrWhiteSpace() || !int.TryParse(@this, out var parsedValue) ? defaultValue : parsedValue;
         
         
         [ContractAnnotation("null => true")]
@@ -19,7 +19,11 @@ namespace Fupr.Extensions
 
         
         [ContractAnnotation("null => true")]
-        public static bool IsNullOrWhiteSpace(this string str) => string.IsNullOrWhiteSpace(str);
+        public static bool IsNullOrWhiteSpace(this string? str) => string.IsNullOrWhiteSpace(str);
+        
+        public static IEnumerable<IEnumerable<string>> Parser (this string input, string lineSplit, string fieldSplit) =>
+            input.Split(new[] { lineSplit }, StringSplitOptions.RemoveEmptyEntries)
+                .Select(line => line.Split(new[] { fieldSplit }, StringSplitOptions.RemoveEmptyEntries));
     }
     
     
