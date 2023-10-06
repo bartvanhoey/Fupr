@@ -10,12 +10,4 @@ namespace Fupr.Functional.ResultClass
 
         public string Message { get; }
     }
-    
-    public class AnotherCustomErrorMessageResultError : BaseResultError
-    {
-        public AnotherCustomErrorMessageResultError() : base()
-        {
-             
-        }
-    }
 }

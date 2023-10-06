@@ -35,6 +35,8 @@ namespace Fupr.Extensions
             input.Split(new[] { lineSplit }, StringSplitOptions.RemoveEmptyEntries)
                 .Select(line => line.Split(new[] { fieldSplit }, StringSplitOptions.RemoveEmptyEntries));
         
+        
+        // Modified Extension method by ABP Framework
         [ContractAnnotation("null <= this:null")]
         public static string ToSentenceCase(this string @this) 
             => string.IsNullOrWhiteSpace(@this) ? @this : Regex.Replace(@this, "[a-z][A-Z]", m => m.Value[0] + " " + char.ToLowerInvariant(m.Value[1]));
