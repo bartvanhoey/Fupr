@@ -40,6 +40,15 @@ namespace Fupr.Extensions
         [ContractAnnotation("null <= this:null")]
         public static string ToSentenceCase(this string @this) 
             => string.IsNullOrWhiteSpace(@this) ? @this : Regex.Replace(@this, "[a-z][A-Z]", m => m.Value[0] + " " + char.ToLowerInvariant(m.Value[1]));
+        
+        
+        public static bool IsValidEmailAddress(this string emailAddress)
+        {
+            if (emailAddress.IsNullOrWhiteSpace()) return false;
+            return  Regex.IsMatch(emailAddress,
+                @"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z",
+                RegexOptions.IgnoreCase);
+        }
     }
     
     
