@@ -16,31 +16,30 @@ namespace Fupr.Functional.ResultClass
     {
         public static Result<T> ToResult<T>(this Maybe<T> maybe, BaseResultError resultError) where T : class?
             => maybe.HasNoValue ? Fail<T>(resultError) : Ok(maybe.Value)!;
-        
+
         public static Result<T> ToResult<T>(this Maybe<T> maybe, string? errorMessage = null) where T : class?
-            => maybe.HasNoValue ? Fail<T>(new ResultError(errorMessage ?? "No error message provided")) : Ok(maybe.Value)!;
+            => maybe.HasNoValue
+                ? Fail<T>(new ResultError(errorMessage ?? "No error message provided"))
+                : Ok(maybe.Value)!;
 
-        public static Result OnSuccess(this Result result, Action action)
+        public static Result Tap(this Result result, Action action)
         {
-            if (result.IsFailure)
-                return result;
-
-            action();
-
+            if (result.IsSuccess)
+                action();
             return Ok();
         }
 
-        public static Result<T> OnSuccess<T>(this Result<T> result, Action<T> action)
+        public static Result<T> Tap<T>(this Result<T> result, Action<T> action)
         {
             if (result.IsSuccess) action(result.Value);
             return result;
         }
 
-        public static Result<TK> OnSuccess<T, TK>(this Result<T> result, Func<T, TK> func)
+        public static Result<TK> Tap<T, TK>(this Result<T> result, Func<T, TK> func)
             => result.IsFailure ? Fail<TK>(result.Error) : Ok(func(result.Value));
 
 
-        public static Result OnSuccess(this Result result, Func<Result> func)
+        public static Result Tap(this Result result, Func<Result> func)
             => result.IsFailure ? result : func();
 
         public static Result OnFailure(this Result result, Action action)

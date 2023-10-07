@@ -7,7 +7,7 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 
     <Title>Fupr</Title>
-    <Description>Write C# code in a more functional way</Description>
+    <Description>Write C# code in a more functional way.</Description>
     <PackageProjectUrl>https://github.com/bartvanhoey/Fupr</PackageProjectUrl>
     <RepositoryUrl>https://github.com/bartvanhoey/Fupr#readme</RepositoryUrl>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
