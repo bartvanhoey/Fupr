@@ -14,11 +14,11 @@ namespace Fupr.Functional.ResultClass
 
     public static class ResultExtensions
     {
-        public static Result<T> ToResult<T>(this Maybe<T> maybe, BaseResultError resultError) where T : class
+        public static Result<T> ToResult<T>(this Maybe<T> maybe, BaseResultError resultError) where T : class?
             => maybe.HasNoValue ? Fail<T>(resultError) : Ok(maybe.Value)!;
         
-        public static Result<T> ToResult<T>(this Maybe<T> maybe, string errorMessage) where T : class
-            => maybe.HasNoValue ? Fail<T>(new ResultError(errorMessage)) : Ok(maybe.Value)!;
+        public static Result<T> ToResult<T>(this Maybe<T> maybe, string? errorMessage = null) where T : class?
+            => maybe.HasNoValue ? Fail<T>(new ResultError(errorMessage ?? "No error message provided")) : Ok(maybe.Value)!;
 
         public static Result OnSuccess(this Result result, Action action)
         {
