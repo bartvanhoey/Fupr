@@ -16,6 +16,9 @@ namespace Fupr.Functional.ResultClass
     {
         public static Result<T> ToResult<T>(this Maybe<T> maybe, BaseResultError resultError) where T : class
             => maybe.HasNoValue ? Fail<T>(resultError) : Ok(maybe.Value)!;
+        
+        public static Result<T> ToResult<T>(this Maybe<T> maybe, string errorMessage) where T : class
+            => maybe.HasNoValue ? Fail<T>(new ResultError(errorMessage)) : Ok(maybe.Value)!;
 
         public static Result OnSuccess(this Result result, Action action)
         {
