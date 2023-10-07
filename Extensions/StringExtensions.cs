@@ -1,32 +1,33 @@
-﻿using System.Text.RegularExpressions;
+﻿using System.Globalization;
+using System.Text.RegularExpressions;
 using JetBrains.Annotations;
-using static System.String;
 
 namespace Fupr.Extensions
 {
     public static class StringExtensions
     {
         // Extension method by Simon Painter
-        public static string ValueOrDefault(this string? @this, string defaultValue)
+        public static string? ValueOrDefault(this string? @this, string defaultValue)
                 => @this.IsNullOrWhiteSpace() ? defaultValue : @this;
         
         // Extension method by Simon Painter
         public static int ValueOrDefault(this string? @this, int defaultValue)
             => @this.IsNullOrWhiteSpace() || !int.TryParse(@this, out var parsedValue) ? defaultValue : parsedValue;
         
-        
+        // Modified Extension method by the ABP Framework
         [ContractAnnotation("null => true")]
         public static bool IsNullOrEmpty(this string @this) => string.IsNullOrEmpty(@this);
 
-        
+        // Modified Extension method by the ABP Framework
         [ContractAnnotation("null => true")]
         public static bool IsNotNullOrEmpty(this string @this) => string.IsNullOrEmpty(@this);
 
-        
+        // Modified Extension method by the ABP Framework
         [ContractAnnotation("null => true")]
         public static bool IsNullOrWhiteSpace(this string? @this) => string.IsNullOrWhiteSpace(@this);
         
         
+        // Modified Extension method by the ABP Framework
         [ContractAnnotation("null => true")]
         public static bool IsNotNullOrWhiteSpace(this string? @this) => !string.IsNullOrWhiteSpace(@this);
         
@@ -36,7 +37,7 @@ namespace Fupr.Extensions
                 .Select(line => line.Split(new[] { fieldSplit }, StringSplitOptions.RemoveEmptyEntries));
         
         
-        // Modified Extension method by ABP Framework
+        // Modified Extension method by the ABP Framework
         [ContractAnnotation("null <= this:null")]
         public static string ToSentenceCase(this string @this) 
             => string.IsNullOrWhiteSpace(@this) ? @this : Regex.Replace(@this, "[a-z][A-Z]", m => m.Value[0] + " " + char.ToLowerInvariant(m.Value[1]));
@@ -49,6 +50,8 @@ namespace Fupr.Extensions
                 @"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z",
                 RegexOptions.IgnoreCase);
         }
+        
+        
     }
     
     
