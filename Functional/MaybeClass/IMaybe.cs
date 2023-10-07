@@ -5,7 +5,7 @@ namespace Fupr.Functional.MaybeClass
     /// </summary>
     public interface IMaybe<out T>
     {
-        T Value { get; }
+        T? Value { get; }
         bool HasValue { get; }
         bool HasNoValue { get; }
     }
