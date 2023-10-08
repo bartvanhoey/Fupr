@@ -1,7 +1,7 @@
 using Fupr.Functional.MaybeClass;
 using static Fupr.Functional.ResultClass.Result;
 
-namespace Fupr.Functional.ResultClass
+namespace Fupr.Functional.ResultClass.Extensions
 {
     // Copyright (c) 2015 Vladimir Khorikov
     //
@@ -12,7 +12,7 @@ namespace Fupr.Functional.ResultClass
     // the Software, and to permit persons to whom the Software is furnished to do so,
     // subject to the following conditions:
 
-    public static class ResultExtensions
+    public static partial class ResultExtensions
     {
         public static Result<T> ToResult<T>(this Maybe<T> maybe, BaseResultError resultError) where T : class?
             => maybe.HasNoValue ? Fail<T>(resultError) : Ok(maybe.Value)!;
@@ -22,31 +22,8 @@ namespace Fupr.Functional.ResultClass
                 ? Fail<T>(new ResultError(errorMessage ?? "No error message provided"))
                 : Ok(maybe.Value)!;
 
-        public static Result Tap(this Result result, Action action)
-        {
-            if (result.IsSuccess)
-                action();
-            return Ok();
-        }
-
-        public static Result<T> Tap<T>(this Result<T> result, Action<T> action)
-        {
-            if (result.IsSuccess) action(result.Value);
-            return result;
-        }
-
-        public static Result<TK> Tap<T, TK>(this Result<T> result, Func<T, TK> func)
-            => result.IsFailure ? Fail<TK>(result.Error) : Ok(func(result.Value));
-
-
-        public static Result Tap(this Result result, Func<Result> func)
-            => result.IsFailure ? result : func();
-
-        public static Result OnFailure(this Result result, Action action)
-        {
-            if (result.IsFailure) action();
-            return result;
-        }
+        
+     
 
         public static Result OnBoth(this Result result, Action<Result> action)
         {
