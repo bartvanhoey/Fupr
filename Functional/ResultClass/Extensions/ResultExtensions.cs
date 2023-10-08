@@ -22,17 +22,6 @@ namespace Fupr.Functional.ResultClass.Extensions
                 ? Fail<T>(new ResultError(errorMessage ?? "No error message provided"))
                 : Ok(maybe.Value)!;
 
-        
-     
-
-        public static Result OnBoth(this Result result, Action<Result> action)
-        {
-            action(result);
-            return result;
-        }
-
-        public static T OnBoth<T>(this Result result, Func<Result, T> func)
-            => func(result);
 
         public static Result<TR> Map<T, TR>(this Result<T> result, Func<T, TR> func)
             => result.IsFailure ? Fail<TR>(result.Error) : Ok(func(result.Value));
