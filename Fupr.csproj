@@ -5,9 +5,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-
     <Title>Fupr</Title>
-    <Description>Write C# code in a more functional way.</Description>
+    <Description>This project is used for testing purposes and is not maintained. Do NOT use it in production!</Description>
     <PackageProjectUrl>https://github.com/bartvanhoey/Fupr</PackageProjectUrl>
     <RepositoryUrl>https://github.com/bartvanhoey/Fupr#readme</RepositoryUrl>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
