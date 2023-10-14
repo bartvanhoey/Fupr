@@ -19,11 +19,9 @@ jobs:
       SOLUTION: 'Fupr.sln'
       DOTNET_INSTALL_DIR: "./.dotnet"
 
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps:
-    - run: echo "Hello ${{ secrets.NUGET_API_KEY }}"
-
     - uses: actions/checkout@v4
     
     - name: Get Build Version
@@ -45,11 +43,9 @@ jobs:
       with:
         dotnet-version: 7.x
 
-    - name: Setup MSBuild
-      uses: microsoft/setup-msbuild@v1.3.1
-
     - name: Build
-      run: msbuild $env:SOLUTION /p:Configuration=$env:BUILD_CONFIG /p:Platform="Any CPU" -p:Version=$env:BUILD_VERSION
+#     run: msbuild $env:SOLUTION /p:Configuration=$env:BUILD_CONFIG /p:Platform="Any CPU" -p:Version=$env:BUILD_VERSION
+      run: dotnet build $SOLUTION --configuration $BUILD_CONFIG -p:Version=$BUILD_VERSION --no-restore
 
     - name: Run tests
       run: dotnet test /p:Configuration=Debug /p:Platform="Any CPU" --no-restore --verbosity normal
