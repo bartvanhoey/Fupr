@@ -56,4 +56,5 @@ jobs:
       
     - name: Publish
       if: startsWith(github.ref, 'refs/heads/release')
-      run: nuget push *.nupkg -SkipDuplicate -Source 'https://api.nuget.org/v3/index.json' -ApiKey ${{secrets.NUGET_API_KEY}}
+
+      run: nuget push *.nupkg -SkipDuplicate -Source 'https://api.nuget.org/v3/index.json' -k oy2nfm73u4hauedsqamadtihmhsw4eiehhrjotk4uy2wem
