@@ -17,6 +17,7 @@ jobs:
     env:
       BUILD_CONFIG: 'Release'
       SOLUTION: 'Fupr.sln'
+      DOTNET_INSTALL_DIR: "./.dotnet"
 
     runs-on: windows-latest
 
