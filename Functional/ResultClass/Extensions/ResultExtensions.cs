@@ -22,9 +22,9 @@ namespace Fupr.Functional.ResultClass.Extensions
                 ? Fail<T>(new ResultError(errorMessage ?? "No error message provided"))
                 : Ok(maybe.Value)!;
 
-        public static Result<T> ToResult<T>(this Maybe<T> maybe, ResultError? resultError = null) where T : class?
+        public static Result<T> ToResult<T>(this Maybe<T> maybe, ResultError resultError) where T : class?
             => maybe.HasNoValue
-                ? Fail<T>(resultError ?? new ResultError("No error message provided"))
+                ? Fail<T>(resultError)
                 : Ok(maybe.Value)!;
 
         public static Result OnBoth(this Result result, Action<Result> action)
