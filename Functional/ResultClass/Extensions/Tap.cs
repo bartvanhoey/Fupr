@@ -16,9 +16,8 @@ namespace Fupr.Functional.ResultClass.Extensions
     {
         public static Result Tap(this Result result, Action action)
         {
-            if (result.IsSuccess)
-                action();
-            return Ok();
+            if (result.IsSuccess) action();
+            return result;
         }
 
         public static Result<T> Tap<T>(this Result<T> result, Action<T> action)

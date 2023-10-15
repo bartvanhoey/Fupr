@@ -5,7 +5,8 @@ namespace Fupr.Extensions
     public static class FunctionalExtensions
     {
         // Extension method by Simon Painter
-        public static TOutput Map<TInput, TOutput>(this TInput input, Func<TInput, TOutput> f) => f(input);
+        public static TOutput Map<TInput, TOutput>(this TInput input, Func<TInput, TOutput> f) 
+            => f(input);
         
         // Extension method by Simon Painter
         public static void ToConsole<T>(this T input, string? message = null)
