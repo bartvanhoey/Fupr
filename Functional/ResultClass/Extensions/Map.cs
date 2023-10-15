@@ -1,4 +1,8 @@
-namespace Fupr.Functional.MaybeClass
+using System.ComponentModel;
+using Fupr.Functional.MaybeClass;
+using static Fupr.Functional.ResultClass.Result;
+
+namespace Fupr.Functional.ResultClass.Extensions
 {
     // Copyright (c) 2015 Vladimir Khorikov
     //
@@ -9,13 +13,9 @@ namespace Fupr.Functional.MaybeClass
     // the Software, and to permit persons to whom the Software is furnished to do so,
     // subject to the following conditions:
 
-    /// <summary>
-    /// Useful in scenarios where you need to determine if a value is Maybe or not
-    /// </summary>
-    public interface IMaybe<out T>
+    public static partial class ResultExtensions
     {
-        T? Value { get; }
-        bool HasValue { get; }
-        bool HasNoValue { get; }
+        public static Result<TR> Map<T, TR>(this Result<T> result, Func<T, TR> func)
+            => result.IsFailure ? Fail<TR>(result.Error) : Ok(func(result.Value));
     }
 }
