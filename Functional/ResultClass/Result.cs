@@ -1,4 +1,6 @@
-﻿namespace Fupr.Functional.ResultClass
+﻿using Fupr.Functional.ResultClass.Errors;
+
+namespace Fupr.Functional.ResultClass
 {
     // Copyright (c) 2015 Vladimir Khorikov
     //

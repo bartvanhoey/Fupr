@@ -1,6 +1,6 @@
 using Fupr.Extensions;
 
-namespace Fupr.Functional.ResultClass
+namespace Fupr.Functional.ResultClass.Errors
 {
     public abstract class BaseResultError
     {

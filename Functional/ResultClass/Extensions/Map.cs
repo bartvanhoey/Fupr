@@ -1,3 +1,4 @@
+using System.ComponentModel;
 using Fupr.Functional.MaybeClass;
 using static Fupr.Functional.ResultClass.Result;
 
@@ -14,23 +15,7 @@ namespace Fupr.Functional.ResultClass.Extensions
 
     public static partial class ResultExtensions
     {
-        public static Result Tap(this Result result, Action action)
-        {
-            if (result.IsSuccess) action();
-            return result;
-        }
-
-        public static Result<T> Tap<T>(this Result<T> result, Action<T> action)
-        {
-            if (result.IsSuccess) action(result.Value);
-            return result;
-        }
-
-        public static Result<TK> Tap<T, TK>(this Result<T> result, Func<T, TK> func)
-            => result.IsFailure ? Fail<TK>(result.Error) : Ok(func(result.Value));
-
-
-        public static Result Tap(this Result result, Func<Result> func)
-            => result.IsFailure ? result : func();
+        public static Result<TR> Map<T, TR>(this Result<T> result, Func<T, TR> func)
+            => result.IsFailure ? Fail<TR>(result.Error) : Ok(func(result.Value));
     }
 }

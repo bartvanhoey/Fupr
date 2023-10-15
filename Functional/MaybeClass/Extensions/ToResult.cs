@@ -1,7 +1,8 @@
-using Fupr.Functional.MaybeClass;
+using Fupr.Functional.ResultClass;
+using Fupr.Functional.ResultClass.Errors;
 using static Fupr.Functional.ResultClass.Result;
 
-namespace Fupr.Functional.ResultClass.Extensions
+namespace Fupr.Functional.MaybeClass.Extensions
 {
     // Copyright (c) 2015 Vladimir Khorikov
     //
@@ -27,22 +28,11 @@ namespace Fupr.Functional.ResultClass.Extensions
                 ? Fail<T>(resultError)
                 : Ok(maybe.Value)!;
 
-        public static Result OnBoth(this Result result, Action<Result> action)
-        {
-            action(result);
-            return result;
-        }
 
-        public static T OnBoth<T>(this Result result, Func<Result, T> func)
-            => func(result);
 
         public static Result<TR> Map<T, TR>(this Result<T> result, Func<T, TR> func)
             => result.IsFailure ? Fail<TR>(result.Error) : Ok(func(result.Value));
 
-        public static Result<T> Ensure<T>(this Result<T> result, Func<T, bool> func, BaseResultError baseResultError)
-        {
-            if (result.IsFailure) return result;
-            return func(result.Value) ? result : Fail<T>(baseResultError);
-        }
+    
     }
 }
