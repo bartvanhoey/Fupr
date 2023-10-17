@@ -13,7 +13,7 @@ namespace Fupr.Functional.MaybeClass.Extensions
     // the Software, and to permit persons to whom the Software is furnished to do so,
     // subject to the following conditions:
 
-    public static partial class ResultExtensions
+    public static partial class MaybeExtensions
     {
         public static Result<T> ToResult<T>(this Maybe<T> maybe, BaseResultError resultError) where T : class?
             => maybe.HasNoValue ? Fail<T>(resultError) : Ok(maybe.Value)!;
@@ -28,10 +28,6 @@ namespace Fupr.Functional.MaybeClass.Extensions
                 ? Fail<T>(resultError)
                 : Ok(maybe.Value)!;
 
-
-
-        public static Result<TR> Map<T, TR>(this Result<T> result, Func<T, TR> func)
-            => result.IsFailure ? Fail<TR>(result.Error) : Ok(func(result.Value));
 
     
     }
