@@ -1,4 +1,4 @@
-﻿using Fupr.Extensions;
+﻿using Fupr;
 using Shouldly;
 
 namespace Fupr.Tests.Extensions.StringExtensionsTests

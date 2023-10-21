@@ -1,5 +1,5 @@
 ﻿using System.Collections;
-using Fupr.Extensions;
+using Fupr;
 using Shouldly;
 
 namespace Fupr.Tests.Extensions.EnumerableExtensionsTests
