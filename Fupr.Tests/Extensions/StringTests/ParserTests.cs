@@ -1,7 +1,6 @@
-﻿using Fupr;
-using Shouldly;
+﻿using Shouldly;
 
-namespace Fupr.Tests.Extensions.StringExtensionsTests
+namespace Fupr.Tests.Extensions.StringTests
 {
     public class ParserTests
     {

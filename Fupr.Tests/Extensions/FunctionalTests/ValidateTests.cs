@@ -1,7 +1,6 @@
-﻿using Fupr;
-using Shouldly;
+﻿using Shouldly;
 
-namespace Fupr.Tests.Extensions.FunctionalExtensionsTests
+namespace Fupr.Tests.Extensions.FunctionalTests
 {
     public class ValidateTests
     {
