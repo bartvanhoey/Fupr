@@ -1,7 +1,6 @@
-using Fupr.Extensions;
 using Shouldly;
 
-namespace Fupr.Tests.Extensions.FunctionalExtensionsTests
+namespace Fupr.Tests.Extensions.FunctionalTests
 {
     public class DoIfNotNullTests
     {

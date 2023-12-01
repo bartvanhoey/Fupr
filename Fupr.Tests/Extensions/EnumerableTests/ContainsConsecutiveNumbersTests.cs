@@ -1,7 +1,6 @@
-using Fupr.Extensions;
 using Shouldly;
 
-namespace Fupr.Tests.Extensions.EnumerableExtensionsTests
+namespace Fupr.Tests.Extensions.EnumerableTests
 {
     public class ContainsConsecutiveNumbersTests
     {

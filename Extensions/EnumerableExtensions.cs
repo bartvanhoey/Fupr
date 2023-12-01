@@ -1,4 +1,5 @@
-namespace Fupr.Extensions
+// ReSharper disable once CheckNamespace
+namespace Fupr
 {
     public static class EnumerableExtensions
     {

@@ -1,4 +1,4 @@
-using Fupr.Extensions;
+using Fupr;
 
 namespace Fupr.Functional.ResultClass.Errors
 {

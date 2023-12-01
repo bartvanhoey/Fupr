@@ -1,6 +1,7 @@
 ﻿using static System.Console;
 
-namespace Fupr.Extensions
+// ReSharper disable once CheckNamespace
+namespace Fupr
 {
     public static class FunctionalExtensions
     {

@@ -1,9 +1,6 @@
-using Fupr.Extensions;
-using Fupr.Functional.ResultClass;
-using Fupr.Functional.ResultClass.Errors;
 using Shouldly;
 
-namespace Fupr.Tests.Extensions.StringExtensionsTests
+namespace Fupr.Tests.Extensions.StringTests
 {
     public class ToSentenceCaseTests
     {

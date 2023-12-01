@@ -1,8 +1,6 @@
-﻿using System.Collections;
-using Fupr.Extensions;
-using Shouldly;
+﻿using Shouldly;
 
-namespace Fupr.Tests.Extensions.EnumerableExtensionsTests
+namespace Fupr.Tests.Extensions.EnumerableTests
 {
     public class EmptyIfNullTests
     {

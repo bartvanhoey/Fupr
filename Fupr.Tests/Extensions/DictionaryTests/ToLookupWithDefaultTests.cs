@@ -1,7 +1,6 @@
-﻿using Fupr.Extensions;
-using Shouldly;
+﻿using Shouldly;
 
-namespace Fupr.Tests.Extensions.DictionaryExtensionsTests
+namespace Fupr.Tests.Extensions.DictionaryTests
 {
     public class ToLookupWithDefaultTests
     {
