@@ -35,8 +35,10 @@ namespace Fupr.Functional.ResultClass
         public bool IsFailure => !IsSuccess;
 
         public static Result Fail(BaseResultError resultError) => new(false, resultError);
+        public static Result Fail(string resultError) => new(false, new ResultError(resultError));
 
         public static Result<T> Fail<T>(BaseResultError? resultError) => new(default!, false, resultError);
+        public static Result<T> Fail<T>(string resultError) => new(default!, false, new ResultError(resultError));
 
         public static Result Ok() => new(true);
 
