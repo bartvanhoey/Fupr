@@ -4,11 +4,7 @@ public static class ListExtensions
 {
     public static List<T> AddIfNotNull<T>(this List<T> list, T? item)
     {
-        if (item != null)
-        {
-            list.Add(item);
-        }
-
+        if (item != null) list.Add(item);
         return list;
     }
     
@@ -21,5 +17,11 @@ public static class ListExtensions
     public static bool HasManyItems<T>(this IList<T> list) => list.SafeAny() && list.Count > 1;
 
     public static bool HasAny<T>(this IList<T> list, Func<T, bool> predicate) => list.SafeAny() && list.Any(predicate);
+
+    public static List<T> ForEachReturn<T, TK>(this List<T> items, Action<T, TK> func, TK value)
+    {
+        items.ForEach(t => func(t, value));
+        return items;
+    }
 }
 
