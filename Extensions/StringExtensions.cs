@@ -1,4 +1,5 @@
-﻿using System.Text.RegularExpressions;
+﻿using System.Text.Json;
+using System.Text.RegularExpressions;
 using JetBrains.Annotations;
 
 // ReSharper disable once CheckNamespace
@@ -57,5 +58,21 @@ namespace Fupr
         // Converts a string to sentence case.
         public static string CapitalizeFirstCharacterRestLowerCase(this string text) =>
             text.ToUpper()[0] + text.ToLower()[1..];
+        
+        public static T? ConvertTo<T>(this string jsonString) =>
+            jsonString switch
+            {
+                null => throw new ArgumentNullException($@"ConvertTo: You cannot convert a null string to a Type"),
+                "[]" => default,
+                _ => JsonSerializer.Deserialize<T>(jsonString,
+                    new JsonSerializerOptions {PropertyNameCaseInsensitive = true})
+            };
+        
+        
+        public static string RemoveWhitespace(this string input)
+            => new string(input.ToCharArray().Where(c => !char.IsWhiteSpace(c)).ToArray());
+
+        public static bool Contains(this string source, string toCheck, StringComparison comp)
+            => source?.IndexOf(toCheck, comp) >= 0;
     }
 }
